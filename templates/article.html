@@ -1,14 +1,15 @@
 {% extends "base.html" %}
-{% block title %}{{ super() }} : {{ article.title }}{% endblock %}
+{% block title %}{{ article.title }} - {{ super() }}{% endblock %}
 {% block content %}        
 
-<h1 id="sitename"><a href="{{ SITEURL }}" id="site-title">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a> &sdot;</h1>
+<section id="blog">
+    <article>
+        <header>
+            <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+            {% if not HIDE_DATE %}<time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>{% endif %}
+        </header>
+        {{ article.content }}
+    </article>
+</section>
 
-<article>
-    <header>
-        <h1><a href="{{ SITEURL }}/{{ article.url }}" id="page-title">{{ article.title }}</a></h1>
-        {% if not HIDE_DATE %}<time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>{% endif %}
-    </header>
-    {{ article.content }}
-</article>
 {% endblock %}

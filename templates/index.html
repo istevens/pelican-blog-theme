@@ -1,12 +1,9 @@
 {% extends "base.html" %}
 {% block content_title %}{% endblock %}
 {% block content %}        
+
 {% if articles %}
-
-<header>
-    <h1><a href="{{ SITEURL }}" id="site-title">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a> &sdot;</h1>
-</header>
-
+<section id="blog">
     {% for article in articles %}        
 
         {# First item #}
@@ -30,12 +27,13 @@
         {% else %} 
             <li><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></li>
         {% endif %}
-{% endfor %}
+    {% endfor %}
+
     {% if loop.length > 1 %}
-    </ol>
-    </section><!-- #article-list -->
+        </ol>
+        </section><!-- #article-list -->
+    {% endif %}
+</section>
 {% endif %}
-{% else %}
-    Pas d'articles pour le moment.
-{% endif %}
+
 {% endblock content %}
