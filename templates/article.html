@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title }} - {{ super() }}{% endblock %}
+{% block body_attrib %}class="single"{% endblock %}
 {% block content %}        
 
 <section id="blog">
-    <article>
+    <article class="post content">
         <header>
             <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
             {% if not HIDE_DATE %}<time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>{% endif %}

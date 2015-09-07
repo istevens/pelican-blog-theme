@@ -16,9 +16,9 @@
     <![endif]-->
 </head>
 
-<body>
+<body {% block body_attrib %}{% endblock %} >
 
-    <header id="site">
+    <header class="banner">
         <h1><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
 
         {% if SITESUBTITLE %}
