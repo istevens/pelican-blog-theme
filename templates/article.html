@@ -5,10 +5,7 @@
 
 <section id="blog">
     <article class="post content">
-        <header>
-            <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
-            {% if not HIDE_DATE %}<time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>{% endif %}
-        </header>
+        {% include 'article_header.html' %}
         {{ article.content }}
     </article>
 </section>
