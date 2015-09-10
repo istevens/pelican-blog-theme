@@ -2,7 +2,7 @@
 <header>
     <h1><a rel="bookmark" href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
     {% if not HIDE_DATE %}
-        <p>Posted on <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></p>
+        <p class="date"><span class="label">Posted on</span> <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></p>
     {% endif %}
 </header>
 {% endblock %}

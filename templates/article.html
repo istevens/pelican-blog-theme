@@ -8,6 +8,15 @@
         {% include 'article_header.html' %}
         {{ article.content }}
     </article>
+
+    <nav class="banner">
+        {% if article.prev_article_in_category %}
+            <a rel="prev" href="{{ SITEURL }}/{{ article.prev_article_in_category.url}}">{{ article.prev_article_in_category.title }}</a>
+        {% endif %}
+        {% if article.next_article_in_category %}
+            <a rel="next" href="{{ SITEURL }}/{{ article.next_article_in_category.url}}">{{ article.next_article_in_category.title }}</a>
+        {% endif %}
+    </nav>
 </section>
 
 {% endblock %}

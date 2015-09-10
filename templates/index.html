@@ -16,6 +16,9 @@
                 {{ article.content }}
             {% else %}
                 {{ article.summary }}
+                <nav>
+                    <a href="{{ SITEURL }}/{{ article.url }}" id="page-title"><span class="label">Continue reading</span> &ldquo;{{article.title}}&rdquo;</a>
+                </nav>
             {% endif %}
         </article>
 
