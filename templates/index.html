@@ -3,9 +3,9 @@
 {% block body_attrib %}class="index"{% endblock %}
 {% block content %}        
 
-{% if articles %}
 <section id="blog" class="content">
-    {% for article in articles %}        
+    <h1>Posts</h1>
+    {% for article in collations.blog_articles[:INDEX_ARTICLE_COUNT] %}
 
         {% set post_classes = loop.first and "first" or "summarized" %}
 
@@ -17,13 +17,25 @@
             {% else %}
                 {{ article.summary }}
                 <nav>
-                    <a href="{{ SITEURL }}/{{ article.url }}" id="page-title"><span class="label">Continue reading</span> &ldquo;{{article.title}}&rdquo;</a>
+                    <a href="{{ SITEURL }}/{{ article.url }}"><span class="label">Continue reading</span> &ldquo;{{article.title}}&rdquo;</a>
                 </nav>
             {% endif %}
         </article>
 
     {% endfor %}
 </section>
-{% endif %}
+
+<section id="tweets" class="content">
+    <h1>Thoughts</h1>
+    {% for article in collations.tweets_articles[:INDEX_ARTICLE_COUNT] %}
+        {% set post_classes = loop.first and "first" or "" %}
+
+        <article class="tweet {{ post_classes }}">
+            <header>
+                <h1>{{ article.title }}</h1>
+            </header>
+        </article>
+    {% endfor %}
+</section>
 
 {% endblock content %}
