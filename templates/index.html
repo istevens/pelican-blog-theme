@@ -4,13 +4,12 @@
 {% block content %}        
 
 <section id="blog" class="content">
-    <h1>Posts</h1>
-    {% for article in collations.blog_articles[:INDEX_ARTICLE_COUNT] %}
+    {% for article in articles_page.object_list %}
 
         {% set post_classes = loop.first and "first" or "summarized" %}
 
         <article class="post {{ post_classes }}">
-            {% include 'article_header.html' %}
+            {% include "article_header.html" %}
 
             {% if loop.first %}
                 {{ article.content }}
@@ -23,19 +22,10 @@
         </article>
 
     {% endfor %}
-</section>
 
-<section id="tweets" class="content">
-    <h1>Thoughts</h1>
-    {% for article in collations.tweets_articles[:INDEX_ARTICLE_COUNT] %}
-        {% set post_classes = loop.first and "first" or "" %}
-
-        <article class="tweet {{ post_classes }}">
-            <header>
-                <h1>{{ article.title }}</h1>
-            </header>
-        </article>
-    {% endfor %}
+    {% if articles_page and articles_paginator.num_pages > 1 %}
+        {% include "pagination.html" %}
+    {% endif %}
 </section>
 
 {% endblock content %}
