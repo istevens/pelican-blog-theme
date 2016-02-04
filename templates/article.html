@@ -9,7 +9,7 @@
         {{ article.content }}
     </article>
 
-    <nav class="banner">
+    <nav>
         {% if article.prev_article_in_category %}
             <a rel="prev" href="{{ SITEURL }}/{{ article.prev_article_in_category.url}}">{{ article.prev_article_in_category.title }}</a>
         {% endif %}
