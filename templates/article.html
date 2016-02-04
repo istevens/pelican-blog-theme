@@ -9,14 +9,21 @@
         {{ article.content }}
     </article>
 
+    {% if article.prev_article_in_category or article.next_article_in_category %}
     <nav>
+        <p>Like this article? You may also like
+
         {% if article.prev_article_in_category %}
-            <a rel="prev" href="{{ SITEURL }}/{{ article.prev_article_in_category.url}}">{{ article.prev_article_in_category.title }}</a>
+            <a rel="prev" href="{{ SITEURL }}/{{ article.prev_article_in_category.url}}">&ldquo;{{ article.prev_article_in_category.title }}&rdquo;</a>, published prior to this one{% if article.next_article_in_category %}, or {% else %}.{% endif %}
         {% endif %}
+
         {% if article.next_article_in_category %}
-            <a rel="next" href="{{ SITEURL }}/{{ article.next_article_in_category.url}}">{{ article.next_article_in_category.title }}</a>
+            <a rel="next" href="{{ SITEURL }}/{{ article.next_article_in_category.url}}">&ldquo;{{ article.next_article_in_category.title }}&rdquo;</a>, published immediately after it.
         {% endif %}
+
+        </p>
     </nav>
+    {% endif %}
 </section>
 
 {% endblock %}
