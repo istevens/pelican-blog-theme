@@ -1,0 +1,11 @@
+{% block content %}
+<footer>
+    <p>
+        This article was written by {{ article.author }},
+        {% if not HIDE_DATE %}
+            published on <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>,
+        {% endif %}
+        and filed in <a href="{{ SITEURL }}/{{ article.category }}" title="More articles in {{ article.category }}">{{ article.category }}</a>.
+    </p>
+</footer>
+{% endblock %}

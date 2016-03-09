@@ -7,6 +7,7 @@
     <article class="post content">
         {% include "article_header.html" %}
         {{ article.content }}
+        {% include "article_footer.html" %}
     </article>
 
     {% if article.prev_article_in_category or article.next_article_in_category %}
