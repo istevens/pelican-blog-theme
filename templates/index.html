@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content_title %}{% endblock %}
 {% block body_attrib %}class="index"{% endblock %}
-{% block content %}        
+{% block content %}
 
-<section id="blog" class="content">
+<section class="content">
     {% for article in articles_page.object_list %}
 
         {% set post_classes = loop.first and "first" or "summarized" %}

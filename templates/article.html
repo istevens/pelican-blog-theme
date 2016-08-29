@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title }} - {{ super() }}{% endblock %}
 {% block body_attrib %}class="single"{% endblock %}
-{% block content %}        
+{% block content %}
 
-<section id="blog">
+<section>
     <article class="post content">
         {% include "article_header.html" %}
         {{ article.content }}
